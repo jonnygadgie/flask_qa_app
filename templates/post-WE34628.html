@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+                              <!-- Displays a single post on the web page -->
+{% block content %}
+    <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
+    <span class="badge badge-primary">{{ post['created'] }}</span>
+    <p>The years of data you entered are: {{ post['years'] }}</p>
+    <p>The data you entered are: {{ post['datas'] }}</p>
+    <!-- <img src="myplot.png"/>   *Failed attempt at posting picture -->
+    <p>The parameter guesses you entered are: {{ post['parameters'] }}</p>
+    <p>The optimized growth curve parameters are: {{ post['finalparameters'] }}</p>
+    
+{% endblock %}

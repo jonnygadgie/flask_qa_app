@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS posts;
+
+CREATE TABLE posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    title TEXT NOT NULL,
+    years REAL NOT NULL,
+    datas REAL NOT NULL,
+    parameters REAL NOT NULL,
+    finalparameters REAL NOT NULL
+);

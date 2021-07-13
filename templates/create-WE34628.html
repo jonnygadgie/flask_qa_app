@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+                        <!-- HTML template for creating a new post - what the user sees and clicks -->
+{% block content %}
+<h1>{% block title %} Create a New Post {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title"
+               placeholder="Post title" class="form-control"
+               value="{{ request.form['title'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="years">years</label>
+        <textarea name="years" placeholder="Post years separated by commas"
+                  class="form-control">{{ request.form['years'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="datas">datas</label>
+        <textarea name="datas" placeholder="Post data separated by commas"
+                  class="form-control">{{ request.form['datas'] }}</textarea>
+    </div>
+
+    <!--  Users must input parameters to give the python optimization algorithm a starting point -->
+    <!--  The following div class may give me issues - data is float(12) instead of text -->
+
+    <div class="form-group">
+        <label for="parameters">parameters</label>
+        <textarea name="parameters" placeholder="Post parameters separated by commas"
+                  class="form-control">{{ request.form['parameters'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="finalparameters">finalparameters</label>
+        <textarea name="finalparameters" placeholder="Post parameters separated by commas"
+                  class="form-control">{{ request.form['finalparameters'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+ <!--  Displays old data from posts and new data after edits are made. Can also delete posts. -->
+{% block content %}
+<h1>{% block title %} Edit "{{ post['title'] }}" {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" placeholder="Post title"
+               class="form-control"
+               value="{{ request.form['title'] or post['title'] }}">
+        </input>
+    </div>
+
+    <div class="form-group">
+        <label for="years">years</label>
+        <textarea name="years" placeholder="Post years"
+                  class="form-control">{{ request.form['years'] or post['years'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="datas">datas</label>
+        <textarea name="datas" placeholder="Post datas"
+                  class="form-control">{{ request.form['datas'] or post['datas'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="parameters">parameters</label>
+        <textarea name="parameters" placeholder="Post parameters"
+                  class="form-control">{{ request.form['parameters'] or post['parameters'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="finalparameters">finalparameters</label>
+        <textarea name="finalparameters" placeholder="Post parameters"
+                  class="form-control">{{ request.form['finalparameters'] or post['finalparameters'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<hr>
+
+<form action="{{ url_for('delete', id=post['id']) }}" method="POST">
+    <input type="submit" value="Delete Post"
+            class="btn btn-danger btn-sm"
+            onclick="return confirm('Are you sure you want to delete this post?')">
+</form>
+
+{% endblock %}
